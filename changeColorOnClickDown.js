@@ -1,4 +1,6 @@
 //  changeColorOnClickDown.js
+//  two color options, alternate based off number of clicks (even/odd)
+//  might want to link to a color panel
 (function(){ 
     var selected = false;
     this.clickDownOnEntity = function(entityID, mouseEvent) { 
