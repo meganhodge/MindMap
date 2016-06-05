@@ -1,15 +1,19 @@
 // The name of the new mapping, you could change the “example.triggerExample” to anything you want
 var MAPPING_NAME = "com.highfidelity.controllers.add";
- 
+
 // Create a new mapping object, do not change this line of code
 var mapping = Controller.newMapping(MAPPING_NAME);
- 
+
 // Add a route to the mapping object
- mapping.from(Controller.Standard.RT).to(addBubble());
- 
+ mapping.from(Controller.Standard.RB).to(function (value){
+   if (value == 1){
+   addBubble();
+ }
+ });
+
 //Enable the new mapping, do not change this line of code
  Controller.enableMapping(MAPPING_NAME);
- 
+
 // Disable the new mapping when the script ends, do not change this line of code
  Script.scriptEnding.connect(function () {
      Controller.disableMapping(MAPPING_NAME);
@@ -30,7 +34,7 @@ function addBubble() {
 	};
 	var bubble = Entities.addEntity(propertiesSphere);
 	print(bubble); // bubble ID
-	
+
 	var propertiesText = {
 		type: "Text",
 		parentID: bubble,
