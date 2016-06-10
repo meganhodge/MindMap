@@ -5,7 +5,7 @@ var MAPPING_NAME = "com.highfidelity.controllers.add";
 var mapping = Controller.newMapping(MAPPING_NAME);
 
 // Add a route to the mapping object
- mapping.from(Controller.Standard.RB).to(function (value){
+ mapping.from(Controller.Standard.RightSecondaryThumb).to(function (value){
    if (value == 1){
    addBubble();
  }
@@ -24,6 +24,7 @@ function addBubble() {
 	var height = Vec3.sum(MyAvatar.getEyePosition(), Quat.getFront(Camera.getOrientation()));
 	Vec3.print("height", height);
 	var propertiesSphere = {
+    shapeType:"Box",
 		type: "Model",
 		modelURL: "http://hifi-content.s3.amazonaws.com/alan/dev/Glass-Sphere-4.fbx",
 		dimensions: {x: 0.2, y: 0.2, z: 0.2},
